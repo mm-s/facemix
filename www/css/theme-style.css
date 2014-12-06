@@ -49,8 +49,14 @@ body a{
 }
 .logo{
 	position:absolute;
-	left: 45%;
+	left: -10%;
 }
+.buttons{
+	position:absolute;
+	top:110px;
+	left: -1%;
+}
+
 /*----navbar-nav----*/
 .top-nav ul li a{
 	color: #FFF;
@@ -449,11 +455,11 @@ span.default_line {
 	padding: 0.8em 2em;
 	text-transform: uppercase;
 	font-size: 1.1em;
-	border-radius: 0.5em;
 	-webkit-border-radius: 0.5em;
 	-moz-border-radius: 0.5em;
 	-o-border-radius: 0.5em;
 	-ms-border-radius: 0.5em;
+	border-radius: 0.5em;
 }
 .more-portfolio-grids a:hover{
 	color:#000;
@@ -532,6 +538,7 @@ span.default_line {
 	font-family: 'Open Sans', sans-serif;
 	font-weight:600;
 	-webkit-appearance: none;
+	-moz-appearance: none;
 	transition: border-color 0.3s;
 	-o-transition: border-color 0.3s;
 	-ms-transition: border-color 0.3s;
@@ -574,11 +581,11 @@ span.default_line {
 	margin:0.5em 0 0 0;
 }
 .t-pic{
-	border-radius:30em;
 	-webkit-border-radius:30em;
 	-moz-border-radius:30em;
 	-o-border-radius:30em;
 	-ms-border-radius:30em;
+	border-radius:30em;
 }
 .testmonial-grid h5 a{
 	color: #222;
@@ -631,6 +638,7 @@ span.default_line {
 	font-family: 'Open Sans', sans-serif;
 	font-weight:600;
 	-webkit-appearance: none;
+	-moz-appearance: none;
 	transition: border-color 0.3s;
 	-o-transition: border-color 0.3s;
 	-ms-transition: border-color 0.3s;
@@ -651,11 +659,11 @@ span.default_line {
 	width: 100%;
 	padding: 1em;
 	margin: 10px 0;
-	transition:0.5s all;
 	-webkit-transition:0.5s all;
 	-moz-transition:0.5s all;
 	-o-transition:0.5s all;
 	-ms-transition:0.5s all;
+	transition:0.5s all;
 }
 .contact-right input[type="submit"]:hover{
 	background:#000000;
