@@ -1,5 +1,14 @@
 <?
+session_start();
+
 $ip=$_SERVER["REMOTE_ADDR"];
+
+
+
+
+
+
+
 ?> 
 
 <!DOCTYPE html>
@@ -59,5 +68,24 @@ function publish() {
 <body>
 <h2>facemix</h2>
 IP <?=$ip?> 
+
+
+
+<!-- fork me. https://github.com/blog/273-github-ribbons -->
+<a href="http://github.com/mm-s/facemix" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub" ></a>
+
+<!--
+src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67"
+alt="Fork me on GitHub" 
+data-canonical-src="http://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"
+-->
+
+<!-- coinbase tip button -->
+<br/><br/>
+<hr/>
+<div class="cb-tip-button" data-content-location="http://facemix.mm-studios.com" data-href="//www.coinbase.com/tip_buttons/show_tip" data-to-user-id="523c4e82a787b2fa4000002e"></div>
+<script>!function(d,s,id) {var js,cjs=d.getElementsByTagName(s)[0],e=d.getElementById(id);if(e){return;}js=d.createElement(s);js.id=id;js.src="https://www.coinbase.com/assets/tips.js";cjs.parentNode.insertBefore(js,cjs);}(document, 'script', 'coinbase-tips');</script>
+
+
 </body>
 </html>
