@@ -110,15 +110,21 @@ $ip=$_SERVER["REMOTE_ADDR"];
 					<div class="logo">
 						<a href="#"><img src="images/logo.png" title="facemix" alt="Facemix - mixing people since 2014" /></a>
 					</div>
-					<div class="buttons">
-        			<!-- coinbase tip button -->
-                    <div class="cb-tip-button" data-content-location="http://facemix.mm-studios.com" data-href="//www.coinbase.com/tip_buttons/show_tip" data-to-user-id="523c4e82a787b2fa4000002e"></div>
-                    <script>!function(d,s,id) {var js,cjs=d.getElementsByTagName(s)[0],e=d.getElementById(id);if(e){return;}js=d.createElement(s);js.id=id;js.src="https://www.coinbase.com/assets/tips.js";cjs.parentNode.insertBefore(js,cjs);}(document, 'script', 'coinbase-tips');</script>
-                    </div>
+
+		   		    <div class="buttons">
+		  			<!-- coinbase tip button -->
+                		    <div class="cb-tip-button" data-content-location="http://facemix.mm-studios.com" data-href="//www.coinbase.com/tip_buttons/show_tip" data-to-user-id="523c4e82a787b2fa4000002e"></div>
+		                    <script>!function(d,s,id) {var js,cjs=d.getElementsByTagName(s)[0],e=d.getElementById(id);if(e){return;}js=d.createElement(s);js.id=id;js.src="https://www.coinbase.com/assets/tips.js";cjs.parentNode.insertBefore(js,cjs);}(document, 'script', 'coinbase-tips');</script>
+                		    </div>
+
 					<div class="clearfix"> </div>
 				</div>
-					<!----start-top-nav---->
-					<!--
+<div class="vleft"></div>
+<div class="vself"></div>
+<div class="vright"></div>
+
+				<!----start-top-nav---->
+				<!--
 				 <nav class="top-nav">
 					<ul class="top-nav">
 						<li class="active"><a href="#home" class="scroll">Home</a></li>
@@ -349,7 +355,9 @@ $ip=$_SERVER["REMOTE_ADDR"];
 			<div class="container">
 				<!--<p class="copy-right">Template by <a href="http://w3layouts.com/">W3layouts</a></p>-->
 				
-				<p class="copy-right"> by <a href="#"> hausanfan!!</a></p>
+				<p class="copy-right"> by <a href="#"> hausanfan!!</a> for koding hackathon'2014</p>
+
+
 				<script type="text/javascript">
 				$(document).ready(function() {
 					/*

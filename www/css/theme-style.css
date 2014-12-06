@@ -57,6 +57,34 @@ body a{
 	left: -1%;
 }
 
+.vleft {
+	position:absolute;
+	color: #FFFFFF;
+	top:150px;
+	left:10px;
+	width: 300px;
+	height:400px;
+	background:rgba(255, 255, 255, 0.65);
+}
+.vself {
+	position:absolute;
+	color: #FFFFFF;
+	top:150px;
+	left:310px;
+	width: 300px;
+	height:400px;
+	background:rgba(255, 255, 155, 0.65);
+}
+.vright {
+	position:absolute;
+	color: #FFFFFF;
+	top:150px;
+	left:610px;
+	width: 300px;
+	height:400px;
+	background:rgba(255, 255, 255, 0.65);
+}
+
 /*----navbar-nav----*/
 .top-nav ul li a{
 	color: #FFF;
@@ -679,7 +707,7 @@ span.default_line {
 /*------start-contact----*/
 .footer{
 	background: url(../images/footer-bg.jpg) no-repeat 0px 0px;
-	min-height: 500px;
+	min-height: 200px;
 	background-size: cover;
 }
 .footer a img{
