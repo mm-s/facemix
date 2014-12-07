@@ -9,7 +9,8 @@ $ip=$_SERVER["REMOTE_ADDR"];
 <html>
 	<head>
 		<title>facemix</title>
-        <meta charset="UTF-8"> 
+	        <meta charset="UTF-8"> 
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
 		<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		 <script src="js/jquery.min.js"></script>
@@ -59,10 +60,11 @@ $ip=$_SERVER["REMOTE_ADDR"];
 
         <!-- Include the PubNub Library -->
         <script src="https://cdn.pubnub.com/pubnub.min.js"></script>
-        <script src=”http://pubnub.github.io/webrtc/webrtc-beta-pubnub.js”></script>
+        <script src="js/webrtc-beta-pubnub.js"></script>
 
         <!-- Instantiate PubNub -->
         <script type="text/javascript">
+
         var pubnub = PUBNUB.init({
         publish_key: 'pub-c-c25d73f6-1b1e-4b49-813f-f5eda5ac120e',
         subscribe_key: 'sub-c-496b23ee-7d21-11e4-812f-02ee2ddab7fe',
@@ -77,30 +79,38 @@ $ip=$_SERVER["REMOTE_ADDR"];
         }); 
         
         function publish() {
-            pubnub.here_now({
-                channel: 'facemix',
-                callback: function(m){console.log(m);}
-            })
-        
-        
-        
+
             pubnub.publish({
             channel: 'facemix',
             message: {"text":"Hey joe!"}
             });
-            
-            
+
             pubnub.here_now({
                 channel: 'facemix',
-                callback: function(m){console.log(m);}
+                callback: function(m){
+			console.log(m);
+			document.getElementById("people").innerHTML ="0 people in the ring";
+		}
             })
-            
-        } 
-        
-        
-        
-        
-        </script> 
+	}
+        </script>
+
+<!--
+			var res = JSON.parse(m);
+			document.write(getContact.name + ", " + getContact.age);
+			console.log(res.message);
+			document.getElementById("people").innerHtml =res.occupancy+" people in the ring";
+-->
+
+	<script>
+function gotStream(stream) {
+	document.querySelector('#self-call-video').src = URL.createObjectURL(stream);
+	myStream = stream; // Save the stream for later use
+};
+navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+navigator.getUserMedia({ audio: false, video: true}, gotStream, function() { return false; } ); 
+	</script>
+
 	</head>
 	<body>
 		<!-----start-container---->
@@ -118,10 +128,17 @@ $ip=$_SERVER["REMOTE_ADDR"];
                 		    </div>
 
 					<div class="clearfix"> </div>
+<div id="peoplediv">
+<p class="txt" id="people">empty ring :&lt;</p>
+</div>
+
 				</div>
+
+<div class="vll"></div>
 <div class="vleft"></div>
-<div class="vself"></div>
+<div class="vself" id="self-call-video"></div>
 <div class="vright"></div>
+<div class="vrr"></div>
 
 				<!----start-top-nav---->
 				<!--
@@ -355,7 +372,7 @@ $ip=$_SERVER["REMOTE_ADDR"];
 			<div class="container">
 				<!--<p class="copy-right">Template by <a href="http://w3layouts.com/">W3layouts</a></p>-->
 				
-				<p class="copy-right"> by <a href="#"> hausanfan!!</a> for koding hackathon'2014</p>
+				<p class="txt"> by <a href="#"> hausanfan!!</a> for koding hackathon'2014</p>
 
 
 				<script type="text/javascript">
