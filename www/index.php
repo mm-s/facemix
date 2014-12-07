@@ -75,23 +75,71 @@ $ip=$_SERVER["REMOTE_ADDR"];
         channel: 'facemix',
         message: function(m){console.log(m);},
         connect: publish
-        
+
         }); 
-        
+
+
         function publish() {
+		//http://creativejs.com/2012/03/getting-started-with-getusermedia/
+		var is_webkit = false;
+		var is_moz=false;
 
-            pubnub.publish({
-            channel: 'facemix',
-            message: {"text":"Hey joe!"}
-            });
+		function onSuccess(stream) {
+			var output=document.getElementById('selfvideo');
+			if (is_webkit) {
+				output.src=window.webkitURL.createObjectURL(stream);
+			}	
+			else if(is_moz) {
+				document.querySelector('#selfvideo').src = URL.createObjectURL(stream);
+				//		output.src=URL.createObjectURL(stream);
+				//alert(output.src);
+			}
+			else {
+				output.src=stream;
+			}
+			//#self-call-video').src = URL.createObjectURL(stream);
+			//myStream = stream; // Save the stream for later use
 
-            pubnub.here_now({
-                channel: 'facemix',
-                callback: function(m){
-			console.log(m);
-			document.getElementById("people").innerHTML ="0 people in the ring";
+		            pubnub.publish({
+			            channel: 'facemix',
+				    message: function(m){console.log(m)},
+			            stream: stream
+		            });
+
+		            pubnub.here_now({
+		                channel: 'facemix',
+		                callback: function(m){
+					console.log(m);
+					document.getElementById("people").innerHTML ="0 people in the ring";
+				}
+		            })
+
+
 		}
-            })
+		function onError() {
+		}
+
+
+		if (navigator.getUserMedia) {
+		    // opera users (hopefully everyone else at some point)
+		    navigator.getUserMedia({video: true, audio: false}, onSuccess, onError);
+		}
+		else if (navigator.webkitGetUserMedia) {
+		    // webkit users
+		    is_webkit = true;
+		    navigator.webkitGetUserMedia('video', onSuccess, onError);
+		}
+		else if (navigator.mozGetUserMedia) {
+			//mozilla
+		    is_moz=true;
+		    navigator.mozGetUserMedia({ audio: false, video: true}, onSuccess, onError ); 
+		}
+		else {
+		    // moms, dads, grandmas, and grandpas
+		}
+
+
+
 	}
         </script>
 
@@ -103,12 +151,8 @@ $ip=$_SERVER["REMOTE_ADDR"];
 -->
 
 	<script>
-function gotStream(stream) {
-	document.querySelector('#self-call-video').src = URL.createObjectURL(stream);
-	myStream = stream; // Save the stream for later use
-};
-navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
-navigator.getUserMedia({ audio: false, video: true}, gotStream, function() { return false; } ); 
+//navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+//navigator.getUserMedia({ audio: false, video: true}, gotStream, errorStream ); 
 	</script>
 
 	</head>
@@ -136,7 +180,14 @@ navigator.getUserMedia({ audio: false, video: true}, gotStream, function() { ret
 
 <div class="vll"></div>
 <div class="vleft"></div>
-<div class="vself" id="self-call-video"></div>
+<div class="vself" id="self-call-video">
+<!--<video autoplay id="selfvideo"></video> -->
+<!--<canvas style="width: 644px; height: 483px; margin-left: 0px;" height="600" width="800" id="selfvideo"></canvas>-->
+<div>
+<video id="selfvideo" src="http://download.wavetlan.com/SVV/Media/HTTP/H264/Talkinghead_Media/H264_test1_Talkinghead_mp4_480x360.mp4" autoplay="autoplay" muted="true"></video>
+</div>
+
+</div>
 <div class="vright"></div>
 <div class="vrr"></div>
 
